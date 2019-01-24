@@ -12,7 +12,6 @@ header {
 	display: inline-block;
 	width: 100%;
 	background: rgba(0,0,0,0.8);
-	position: fixed;
 	top: 0px;
 	padding: 0;
 	z-index: 2;
@@ -43,9 +42,6 @@ header .headerName.secondary {
 	margin-left: -97px;
 }
 
-header nav {
-	float: right;
-}
 
 nav ul { 
 	margin: 0;
@@ -61,14 +57,16 @@ nav li {
 	font-size: 20px;
 }
 
-nav li a {
+.nav .nav-link {
 	color: #FFF;
 	text-decoration: none;
-	padding: 37px;
-	float: left;
+	padding: 40px;
 }
-nav li a.current,
-nav li a:hover { background: rgba(255,255,255,0.1); }
+nav li a.active,
+nav li a:hover { 
+	background: rgba(255,255,255,0.1); 
+	color: #FFF; 
+ }
 
 
 #bodyWrapper { 
@@ -76,8 +74,8 @@ nav li a:hover { background: rgba(255,255,255,0.1); }
 	max-width: 960px;
 	background: #FFF;
 	position: relative;
-	padding: 10px 30px 20px;
-	margin: 130px auto 100px auto;
+	padding: 30px 30px 20px;
+	margin: 30px auto 100px auto;
 }
 
 #bodyWrapper p { 
@@ -106,19 +104,15 @@ nav li a:hover { background: rgba(255,255,255,0.1); }
 
 #bodyWrapper h1 {
 	font-family: 'Montserrat', sans-serif;
-	border-bottom: 3px solid #000;
 	font-size: 32px;
-	padding: 0px 0 10px;
+	padding: 5px 0 0px;
+	margin: 0;
 }
 
 #bodyWrapper img { 
 	float: left;
-	margin: 0 20px 20px 0;
+	margin: 0 0px 20px 0;
 	width: 100%;
-}
-
-#bodyWrapper .aboutPhoto {
-	max-width: 300px;
 }
 
 .clearfix {
@@ -128,10 +122,7 @@ nav li a:hover { background: rgba(255,255,255,0.1); }
 }
 
 .socialMedia {
-	float: left;
-	position: absolute;
-	right: 30px;
-	top: 20px;
+	float: right;
 	list-style: none;
 }
 
@@ -147,10 +138,9 @@ nav li a:hover { background: rgba(255,255,255,0.1); }
 
 .socialMedia li a { 
 	display: inline-block;
-	padding: 11px 0px 9px;
+	padding: 7px 0px 7px;
 	border: 1px solid #666;
 	color: #666;
-	border-radius: 300px;
 	width: 40px;
 	text-align: center;
 }
@@ -173,28 +163,18 @@ nav li a:hover { background: rgba(255,255,255,0.1); }
 	list-style: none;
 }
 
-.portFolioItems li {
-	display: inline;
-	float: left;
-	float: left;
-	width: 25%;
-	min-height: 180px;
-	padding: 0 20px 10px 0;
-	margin: 0 0px 30px 0;
-	font-weight: bold;
-
-
-}
-
-.portFolioItems li a {
+.portFolioItems a {
 	text-decoration: none;
+	font-weight: bold;
+	float: left;
+	width: 100%;
+	padding: 0 0 30px 0;
 	color: #444;
 }
 
-.portFolioItems li a:hover {
+.portFolioItems a:hover {
 	color: #000;
 }
-
 
 .portFolioItems .cover {
 	width: 100%;
@@ -250,9 +230,19 @@ nav li a:hover { background: rgba(255,255,255,0.1); }
 
 }
 
+.contactForm button { 
+	background-color: #555;
+	border: 1px solid #444;
+}
+
+.contactForm button:hover { 
+	background-color: #333;
+}
+
+#navbar.collapse { display: block; }
 
 footer { 
-	padding: 10px 0 10px 0;
+	padding: 20px 0 10px 0;
 	background: rgba(0,0,0,0.8);
 	display: block;
 	width: 100%;
@@ -263,7 +253,9 @@ footer {
 	color: #FFF;
 }
 
-@media only screen and (max-width: 804px) {
+.navbar-toggler { display: none; }
+
+@media only screen and (max-width: 980px) {
 
 	.portFolioItems li {
 		width: 33.33%;
@@ -271,16 +263,22 @@ footer {
 	.portFolioItems .cover {
 		height: 140px;
 	}
-
-	nav li a {
-		
-		padding: 37px 18px;
+	.nav .nav-link {
+		padding-left: 30px;
+		padding-right: 30px;
 		
 	}
 
 } 
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
+
+	header .headerName { 
+		float: left;
+		padding: 36px 20px;
+		text-align: center;
+		font-size: 25px;
+	}
 
 	.portFolioItems li {
 		width: 50%;
@@ -288,13 +286,29 @@ footer {
 	.portFolioItems .cover {
 		height: 190px;
 	}
-	nav li a {
-		padding: 37px 14px;
+	.nav .nav-link {
+		padding-left: 26px;
+		padding-right: 26px;
+		
 	}
+	.socialMedia .socialMediaLabel { display: none; }
 
 } 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 640px) {
+
+	#bodyWrapper { padding-top: 40px;}
+	
+	.navbar-toggler { 
+		display: block;
+		position: absolute; 
+		top: 20px; 
+		right: 15px;
+		outline: none !important;
+	}
+	.navbar-toggler:focus {
+		outline: none !important;
+	}
 
 	header .headerName { 
 		float: left;
@@ -309,28 +323,33 @@ footer {
 		margin-left: 0px;
 	}
 
-	header nav {
+	#navbar,
+	#navbar.collapse { background: rgba(0,0,0,0.5); width: 100%; height: 0px; overflow: hidden; position: fixed; top: 83px; }
+	#navbar.collapse.show { height: auto; overflow: show; }
+
+	.nav {
 		width: 100%;
 		padding: 15px 0;
 		text-align: center;
+		justify-content: center !important;
+		margin: 0 auto;
 	}
 
-	nav li {
+	.nav .nav-item  {
 		list-style: none;
 		display: inline-block;
 		float: none;
 		font-size: 20px;
 	}
-
-	nav li a {
+	.nav .nav-link {
 		color: #FFF;
 		text-decoration: none;
 		padding: 7px;
-		float: left;
+		float: none;
 		background: none;
 		padding-bottom: 9px;
 	}
-	nav li a.current,
+	nav li a.active,
 	nav li a:hover {
 		border-bottom: 2px solid #999;
 		background: none;
@@ -348,6 +367,24 @@ footer {
 
 } 
 
+@media only screen and (max-width: 576px) {
+
+	#bodyWrapper H1 { 
+		text-align: center;
+		float: left; 
+		width: 100%;
+		display: block;
+	}
+
+	.socialMedia {
+		margin: 10px auto 20px;
+		padding: 0;
+		width: 100%;
+		text-align: center;
+		float: none;
+	}
+
+}
 
 
 
