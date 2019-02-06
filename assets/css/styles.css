@@ -102,11 +102,17 @@ nav li a:hover {
 	color: #333;
 }
 
-#bodyWrapper h1 {
+#bodyWrapper h1,
+#bodyWrapper h4 {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 32px;
-	padding: 5px 0 0px;
-	margin: 0;
+	padding: 0px 0 0px;
+	margin: 20px 0 10px 0;
+}
+
+#bodyWrapper h4 { 
+	font-size: 23px; 
+	margin-bottom: 20px; 
 }
 
 #bodyWrapper img { 
